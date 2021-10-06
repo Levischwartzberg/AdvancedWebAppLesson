@@ -34,6 +34,9 @@ public class MenteePersistenceTest {
         Mentee savedMentee = menteeRepository.save(mentee);
         Assert.assertNotNull(savedMentee.getId());
 
+        Mentee foundByName = menteeRepository.findByName("Levi");
+        Assert.assertEquals("Levi", foundByName.getName());
+
         Mentee foundMentee = menteeRepository.findById(savedMentee.getId()).orElse(null);
         Assert.assertNotNull(foundMentee);
 

@@ -10,6 +10,8 @@ public interface MenteeService {
 
     Mentee findMenteeById(String id);
 
+    Mentee findMenteeByName(String name);
+
     List<Mentee> findAllMentees();
 
     void deleteMentee(String id);

@@ -28,6 +28,11 @@ public class MenteeServiceImpl implements MenteeService {
     }
 
     @Override
+    public Mentee findMenteeByName(String name) {
+        return menteeRepository.findByName(name);
+    }
+
+    @Override
     public List<Mentee> findAllMentees() {
         List<Mentee> menteeList = new ArrayList<>();
         menteeRepository.findAll().forEach(menteeList::add);
