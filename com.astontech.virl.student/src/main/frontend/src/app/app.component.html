@@ -1,51 +1,36 @@
-<div class="main-container">
-  <header class="header header-6">
-    <div class="branding">
-      <span class="title">Header</span>
+<div class="login-wrapper">
+  <form class="login">
+    <section class="title">
+      <h3 class="welcome">Welcome to</h3>
+      Company Product Name
+      <h5 class="hint">Use your Company ID to sign in or create one now</h5>
+      {{profileMessage}}
+    </section>
+    <div class="login-group">
+      <clr-select-container>
+        <label class="clr-sr-only">User Role</label>
+        <select clrSelect name="type">
+          <option value="local">Local Users</option>
+          <option value="admin">Administrator</option>
+        </select>
+      </clr-select-container>
+      <clr-input-container>
+        <label class="clr-sr-only">Username</label>
+        <input type="text" name="username" clrInput placeholder="Username" />
+      </clr-input-container>
+      <clr-password-container>
+        <label class="clr-sr-only">Password</label>
+        <input type="password" name="password" clrPassword placeholder="Password" />
+      </clr-password-container>
+      <clr-checkbox-wrapper>
+        <label>Remember me</label>
+        <input type="checkbox" name="rememberMe" clrCheckbox />
+      </clr-checkbox-wrapper>
+      <div class="error active">
+        Invalid user name or password
+      </div>
+      <button type="submit" class="btn btn-primary">NEXT</button>
+      <a href="javascript://" class="signup">Sign up for a Company ID</a>
     </div>
-  </header>
-  <div class="content-container">
-    <div class="content-area">
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempora eligendi quos unde id optio culpa, illo
-        perspiciatis laboriosam explicabo in voluptate incidunt est beatae rerum quisquam accusantium corporis
-        reiciendis delectus!
-      </p>
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi nisi ad, minus fuga neque voluptatibus quidem
-        libero ducimus quas ipsa eveniet explicabo voluptates sunt error! Eligendi a, animi consequatur odit.
-      </p>
-    </div>
-    <nav class="sidenav">
-      <section class="sidenav-content">
-        <a href="javascript://" class="nav-link active">
-          Nav Element 1
-        </a>
-        <a href="javascript://" class="nav-link">
-          Nav Element 2
-        </a>
-        <section class="nav-group collapsible">
-          <input id="tabexample1" type="checkbox" />
-          <label for="tabexample1">Collapsible Nav Element</label>
-          <ul class="nav-list">
-            <li><a class="nav-link">Link 1</a></li>
-            <li><a class="nav-link">Link 2</a></li>
-          </ul>
-        </section>
-        <section class="nav-group">
-          <input id="tabexample2" type="checkbox" />
-          <label for="tabexample2">Default Nav Element</label>
-          <ul class="nav-list">
-            <li><a class="nav-link">Link 1</a></li>
-            <li><a class="nav-link">Link 2</a></li>
-            <li><a class="nav-link active">Link 3</a></li>
-            <li><a class="nav-link">Link 4</a></li>
-            <li><a class="nav-link">Link 5</a></li>
-            <li><a class="nav-link">Link 6</a></li>
-          </ul>
-        </section>
-      </section>
-    </nav>
-  </div>
+  </form>
 </div>
-
