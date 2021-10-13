@@ -7,10 +7,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { UserProfileService } from './services/user-profile.service';
 import { HttpClient } from '@angular/common/http';
 import { HttpClientModule } from '@angular/common/http';
+import { MenteeComponent } from './mentee/mentee.component';
+import { MentorComponent } from './mentor/mentor.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    MenteeComponent,
+    MentorComponent
   ],
   imports: [
     BrowserModule,

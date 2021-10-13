@@ -1,4 +1,3 @@
-{{profileMessage}}
+<app-mentee *ngIf="menteeView"></app-mentee>
 
-Logged in User : {{ userProfile.username }}
-Logged in Role : {{ userProfile.role }}
+<app-mentor *ngIf="mentorView"></app-mentor>
