@@ -10,6 +10,8 @@ import { Mentee } from '../types/mentee';
 export class MentorComponent implements OnInit {
 
   mentees: Mentee[] = [];
+  newMenteeModal = false;
+  errorModal = false;
 
   constructor(private http: HttpClient) { }
 
@@ -21,6 +23,10 @@ export class MentorComponent implements OnInit {
     this.http.get<Mentee[]>("/api/mentee/").subscribe(mentees => {
         this.mentees = mentees;
     })
+  }
+
+  saveMentee() {
+    console.log("Whep!")
   }
 
 }

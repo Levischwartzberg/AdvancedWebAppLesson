@@ -1,15 +1,49 @@
-<clr-datagrid>
-    <clr-dg-column>Mentee ID</clr-dg-column>
-    <clr-dg-column [clrDgField]="'name'">Name</clr-dg-column>
-    <clr-dg-column [clrDgField]="'creation'">Site</clr-dg-column>
-    <clr-dg-column [clrDgField]="'pokemon.name'">BU</clr-dg-column>
-  
-    <clr-dg-row *clrDgItems="let mentee of mentees">
-      <clr-dg-cell>{{mentee.id}}</clr-dg-cell>
-      <clr-dg-cell>{{mentee.name}}</clr-dg-cell>
-      <clr-dg-cell>{{mentee.site}}</clr-dg-cell>
-      <clr-dg-cell>{{mentee.bu}}</clr-dg-cell>
-    </clr-dg-row>
-  
-    <clr-dg-footer>{{mentees.length}} mentees</clr-dg-footer>
-  </clr-datagrid>
+<div class="outer-box">
+
+  <div>
+    <clr-button-group class="btn-primary">
+      <clr-button class='btn' (click)='newMenteeModal = true'>Add Mentee</clr-button>
+      <clr-button class='btn' (click)='errorModal = true'>Modal Tester</clr-button>
+    </clr-button-group>
+  </div>
+
+  <clr-datagrid>
+      <clr-dg-column [clrDgField]="'id'">Mentee ID</clr-dg-column>
+      <clr-dg-column [clrDgField]="'name'">Name</clr-dg-column>
+      <clr-dg-column [clrDgField]="'site'">Site</clr-dg-column>
+      <clr-dg-column [clrDgField]="'bu'">BU</clr-dg-column>
+    
+      <clr-dg-row *clrDgItems="let mentee of mentees">
+        <clr-dg-cell>{{mentee.id}}</clr-dg-cell>
+        <clr-dg-cell>{{mentee.name}}</clr-dg-cell>
+        <clr-dg-cell>{{mentee.site}}</clr-dg-cell>
+        <clr-dg-cell>{{mentee.bu}}</clr-dg-cell>
+      </clr-dg-row>
+    
+      <clr-dg-footer>{{mentees.length}} mentees</clr-dg-footer>
+    </clr-datagrid>
+
+</div>
+
+<div>
+  <clr-modal [(clrModalOpen)]="newMenteeModal">
+    <h3 class="modal-title">Add New Mentee</h3>
+    <div class="modal-body">
+      <p>This is Text :)</p>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-primary" (click)="saveMentee()">Submit</button>
+      <button type="button" class="btn btn-danger" (click)="newMenteeModal = false">Cancel</button>
+    </div>
+  </clr-modal>
+
+  <clr-modal [(clrModalOpen)]="errorModal">
+    <h3 class="modal-title">Error!</h3>
+    <div class="modal-body">
+      <p>An error occured :(</p>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-danger" (click)="errorModal = false">Exit</button>
+    </div>
+  </clr-modal>
+</div>
