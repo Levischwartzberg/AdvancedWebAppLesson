@@ -15,4 +15,8 @@ export class UserProfileService {
         })
     }
 
+    getSessionProfile() {
+        return this.http.get("/api/profile/");
+    }
+
 }
