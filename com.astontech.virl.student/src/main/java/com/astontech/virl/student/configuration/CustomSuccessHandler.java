@@ -60,11 +60,11 @@ public class CustomSuccessHandler extends SimpleUrlAuthenticationSuccessHandler 
     }
 
     private boolean isMentor(List<String> roles) {
-        return roles.contains("Mentor-Dev") || roles.contains("Mentor-Cisco") || roles.contains("Logistics");
+        return roles.contains("Mentor-Dev") || roles.contains("Mentor-Cisco") || roles.contains("ROLE_MENTOR");
     }
 
     private boolean isMentee(List<String> roles) {
-        return (roles.contains("Field Engineer - Cisco") || roles.contains("Field Engineer - Dev"));
+        return (roles.contains("Field Engineer - Cisco") || roles.contains("Field Engineer - Dev")) || roles.contains("ROLE_MENTEE");
     }
 
     private List<String> getRolesFromAuthorities(Authentication authentication) {

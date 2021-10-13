@@ -65,4 +65,16 @@ public class MenteeController {
     public void deleteMentee(@PathVariable String id) {
         menteeService.deleteMentee(id);
     }
+
+    //Test
+    @GetMapping("/add")
+    public List<Mentee> addTestMenteeToTestSaveMenteeMethod() {
+        Mentee testMentee = new Mentee();
+        testMentee.setName("Buddy");
+        testMentee.setBu("Allianz");
+        testMentee.setSite("MN");
+        testMentee.setAssignedVirlInstance("virl0x");
+        menteeService.saveMentee(testMentee);
+        return menteeService.findAllMentees();
+    }
 }

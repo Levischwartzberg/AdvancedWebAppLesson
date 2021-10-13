@@ -35,8 +35,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         if (authenticationMethod.equals("IN_MEMORY")) {
 
             auth.inMemoryAuthentication()
-                    .withUser("test_admin").password("123").roles("MENTOR")
-                    .and().withUser("test_mentee").password("123").roles("MENTEE");
+                    .withUser("mentor").password("{noop}123").roles("MENTOR")
+                    .and().withUser("mentee").password("{noop}123").roles("MENTEE");
         } else if (authenticationMethod.equals("LDAP")) {
             auth.authenticationProvider(activeDirectoryLdapAuthenticationProvider());
         }
@@ -60,9 +60,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                     .authorizeRequests()
                     .antMatchers("/").permitAll();
         }
-        else if(authenticationMethod.equals("IN_MEMORY")) {
-
-        } else if (authenticationMethod.equals("LDAP")) {
+        else if (authenticationMethod.equals("LDAP") || authenticationMethod.equals("IN_MEMORY")) {
             http
                     .authorizeRequests()
                     .anyRequest().authenticated()
