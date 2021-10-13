@@ -1,7 +1,9 @@
 export class Mentee {
-    id: string = "";
-    name: string = "";
-    site: string = "";
-    bu: string = "";
-    assignedVirlInstance: string = "";
+    constructor(
+        public name: string,
+        public site: string,
+        public bu: string,
+        public assignedVirlInstance?: string,
+        public id?: string
+    ) {}
 }

@@ -1,0 +1,26 @@
+<form clrForm clrLayout="horizontal">
+    <clr-input-container>
+        <label>Mentee Name</label>
+        <input clrInput type="text" required [(ngModel)]="mentee.name" name="example" #spyname/>
+        <clr-control-error>You must enter in a value for the name field</clr-control-error>
+    </clr-input-container>
+
+    <clr-input-container>
+        <label>Business Unit</label>
+        <select clrInput required [(ngModel)]="mentee.bu" name=bu>
+            <option value="DEV">Development</option>
+            <option value="CISCO">Cisco Data</option>
+            <option value="PM">Project Management</option>
+        </select>
+        <clr-control-error>You gotta enter in a business unit!</clr-control-error>
+    </clr-input-container>
+
+    <clr-input-container>
+        <label>Site</label>
+        <select clrInput required [(ngModel)]="mentee.site" name=site>
+            <option value="MN">Minnesota</option>
+            <option value="CA">California</option>
+        </select>
+        <clr-control-error>You gotta enter in a site!</clr-control-error>
+    </clr-input-container>
+</form>
