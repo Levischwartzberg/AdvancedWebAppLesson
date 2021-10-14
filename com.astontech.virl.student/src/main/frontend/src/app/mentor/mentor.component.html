@@ -1,5 +1,4 @@
 <div class="outer-box">
-
   <div>
     <clr-button-group class="btn-primary">
       <clr-button class='btn' (click)='newMenteeModal = true'>Add Mentee</clr-button>
@@ -30,7 +29,8 @@
     <h3 class="modal-title">Add New Mentee</h3>
     <div class="modal-body">
       <p>This is Text :)</p>
-      <app-mentee-form></app-mentee-form>
+      <app-mentee-form (notify)="onNotify($event)" [savePressed]='saveMenteeControl'></app-mentee-form>
+      <!-- {{menteeFromForm.name}} -->
     </div>
     <div class="modal-footer">
       <button type="button" class="btn btn-primary" (click)="saveMentee()">Submit</button>
@@ -45,6 +45,16 @@
     </div>
     <div class="modal-footer">
       <button type="button" class="btn btn-danger" (click)="errorModal = false">Exit</button>
+    </div>
+  </clr-modal>
+
+  <clr-modal [(clrModalOpen)]="menteeSavedModal">
+    <h3 class="modal-title">Mentee Saved!</h3>
+    <div class="modal-body">
+      <p>The Mentee was saved to the database! :)</p>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-success" (click)="refreshPage()">Ok</button>
     </div>
   </clr-modal>
 </div>

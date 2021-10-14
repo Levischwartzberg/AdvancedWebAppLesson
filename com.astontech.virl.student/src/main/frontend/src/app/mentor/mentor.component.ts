@@ -12,6 +12,10 @@ export class MentorComponent implements OnInit {
   mentees: Mentee[] = [];
   newMenteeModal = false;
   errorModal = false;
+  saveMenteeControl = false;
+  menteeSavedModal = false;
+
+  menteeFromForm: Mentee = new Mentee("Name", "Site", "BU");
 
   constructor(private http: HttpClient) { }
 
@@ -26,7 +30,21 @@ export class MentorComponent implements OnInit {
   }
 
   saveMentee() {
-    console.log("Whep!")
+    console.log("Whep!");
+    this.saveMenteeControl = true;
+    this.newMenteeModal = false;
+    this.menteeSavedModal = true;
+    this.getMentees();
+  }
+
+  refreshPage() {
+    window.location.reload();
+  }
+
+  onNotify(message: Mentee): void {
+    this.menteeFromForm = message;
+    this.http.post<Mentee>("/api/mentee/", this.menteeFromForm)
+      .subscribe(data => {this.menteeFromForm.name = data.name});
   }
 
 }
