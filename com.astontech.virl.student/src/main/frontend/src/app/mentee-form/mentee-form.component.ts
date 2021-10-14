@@ -8,7 +8,7 @@ import { Mentee } from '../types/mentee';
 })
 export class MenteeFormComponent implements OnChanges {
 
-  mentee = new Mentee('Levi Schwartzberg', 'MN', 'DEV');
+  mentee = new Mentee('', '', '');
   @Input() savePressed: boolean = false;
 
   submitted = false;
