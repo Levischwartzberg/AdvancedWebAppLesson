@@ -24,6 +24,13 @@ export class MenteeService {
             );
     }
 
+    addMentee(mentee: Mentee): Observable<Mentee> {
+        return this.http.post<Mentee>(this.menteeUrl, mentee, httpOptions)
+            .pipe(
+                catchError(this.handleError)
+            );
+    }
+
     private handleError(error: HttpErrorResponse) {
         if (error.error instanceof ErrorEvent) {
             console.error('An error occured: ' , error.error.message);

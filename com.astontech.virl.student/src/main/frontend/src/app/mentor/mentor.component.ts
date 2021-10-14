@@ -37,7 +37,6 @@ export class MentorComponent implements OnInit {
     this.saveMenteeControl = true;
     this.newMenteeModal = false;
     this.menteeSavedModal = true;
-    this.getMentees();
   }
 
   refreshPage() {
@@ -46,8 +45,8 @@ export class MentorComponent implements OnInit {
 
   onNotify(message: Mentee): void {
     this.menteeFromForm = message;
-    this.http.post<Mentee>("/api/mentee/", this.menteeFromForm)
-      .subscribe(data => {this.menteeFromForm.name = data.name});
+    this.menteeService.addMentee(this.menteeFromForm)
+      .subscribe(mentee => this.mentees.push(mentee));
   }
 
 }
