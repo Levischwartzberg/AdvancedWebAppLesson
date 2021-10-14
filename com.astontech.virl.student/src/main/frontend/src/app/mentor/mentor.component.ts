@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { MenteeService } from '../services/mentee.service';
 import { Mentee } from '../types/mentee';
 
 @Component({
@@ -17,14 +18,16 @@ export class MentorComponent implements OnInit {
 
   menteeFromForm: Mentee = new Mentee("Name", "Site", "BU");
 
-  constructor(private http: HttpClient) { }
+  // constructor(private http: HttpClient) { }
+
+  constructor(private menteeService: MenteeService, private http: HttpClient) {} 
 
   ngOnInit(): void {
     this.getMentees();
   }
 
   getMentees() {
-    this.http.get<Mentee[]>("/api/mentee/").subscribe(mentees => {
+    this.menteeService.getMentees().subscribe(mentees => {
         this.mentees = mentees;
     })
   }

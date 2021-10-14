@@ -11,6 +11,7 @@ import { MenteeComponent } from './mentee/mentee.component';
 import { MentorComponent } from './mentor/mentor.component';
 import { FormsModule } from '@angular/forms';
 import { MenteeFormComponent } from './mentee-form/mentee-form.component';
+import { MenteeService } from './services/mentee.service';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { MenteeFormComponent } from './mentee-form/mentee-form.component';
   ],
   providers: [
     HttpClient,
-    UserProfileService],
+    UserProfileService,
+    MenteeService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
