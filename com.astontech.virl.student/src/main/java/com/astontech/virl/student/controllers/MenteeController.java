@@ -44,8 +44,7 @@ public class MenteeController {
         if (mentee == null) {
             Log.info("Mentee " + name + " not found!");
             return ResponseEntity.status(HttpStatus.NOT_FOUND).headers(headers).body(null);
-        }
-        else {
+        } else {
             return ResponseEntity.ok().headers(headers).body(mentee);
         }
     }
@@ -53,10 +52,9 @@ public class MenteeController {
     @PostMapping("/")
     public ResponseEntity<Mentee> saveMentee(@RequestBody Mentee mentee) {
         Mentee savedMentee = menteeService.saveMentee(mentee);
-        if(savedMentee.getId() == null) {
+        if (savedMentee.getId() == null) {
             return ResponseEntity.status(HttpStatus.UNPROCESSABLE_ENTITY).body(savedMentee);
-        }
-        else {
+        } else {
             return ResponseEntity.status(HttpStatus.CREATED).body(savedMentee);
         }
     }

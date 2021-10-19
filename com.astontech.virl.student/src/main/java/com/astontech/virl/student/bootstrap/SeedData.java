@@ -14,16 +14,16 @@ import java.util.stream.IntStream;
 public class SeedData implements ApplicationListener<ContextRefreshedEvent> {
 
     private static final Logger logger = LoggerFactory.getLogger(SeedData.class);
-    
+
     MenteeService menteeService;
-    
+
     public SeedData(MenteeService menteeService) {
         this.menteeService = menteeService;
     }
 
     @Override
     public void onApplicationEvent(ContextRefreshedEvent contextRefreshedEvent) {
-        if(menteeService.findAllMentees().size() == 0) {
+        if (menteeService.findAllMentees().size() == 0) {
             logger.info("Inserting seed data into empty database");
             generateTestMenteeData(20);
         }

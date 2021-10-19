@@ -59,8 +59,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
             http
                     .authorizeRequests()
                     .antMatchers("/").permitAll().and().csrf().disable();
-        }
-        else if (authenticationMethod.equals("LDAP") || authenticationMethod.equals("IN_MEMORY")) {
+        } else if (authenticationMethod.equals("LDAP") || authenticationMethod.equals("IN_MEMORY")) {
             http
                     .authorizeRequests()
                     .anyRequest().authenticated()

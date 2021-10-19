@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { MenteeFormComponent } from './mentee-form.component';
+import {MenteeFormComponent} from './mentee-form.component';
 
 describe('MenteeFormComponent', () => {
   let component: MenteeFormComponent;
@@ -8,9 +8,9 @@ describe('MenteeFormComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ MenteeFormComponent ]
+      declarations: [MenteeFormComponent]
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {

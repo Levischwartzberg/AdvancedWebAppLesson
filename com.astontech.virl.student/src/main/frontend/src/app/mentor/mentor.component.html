@@ -7,20 +7,20 @@
   </div>
 
   <clr-datagrid>
-      <clr-dg-column [clrDgField]="'id'">Mentee ID</clr-dg-column>
-      <clr-dg-column [clrDgField]="'name'">Name</clr-dg-column>
-      <clr-dg-column [clrDgField]="'site'">Site</clr-dg-column>
-      <clr-dg-column [clrDgField]="'bu'">BU</clr-dg-column>
-    
-      <clr-dg-row *clrDgItems="let mentee of mentees">
-        <clr-dg-cell>{{mentee.id}}</clr-dg-cell>
-        <clr-dg-cell>{{mentee.name}}</clr-dg-cell>
-        <clr-dg-cell>{{mentee.site}}</clr-dg-cell>
-        <clr-dg-cell>{{mentee.bu}}</clr-dg-cell>
-      </clr-dg-row>
-    
-      <clr-dg-footer>{{mentees.length}} mentees</clr-dg-footer>
-    </clr-datagrid>
+    <clr-dg-column [clrDgField]="'id'">Mentee ID</clr-dg-column>
+    <clr-dg-column [clrDgField]="'name'">Name</clr-dg-column>
+    <clr-dg-column [clrDgField]="'site'">Site</clr-dg-column>
+    <clr-dg-column [clrDgField]="'bu'">BU</clr-dg-column>
+
+    <clr-dg-row *clrDgItems="let mentee of mentees">
+      <clr-dg-cell>{{mentee.id}}</clr-dg-cell>
+      <clr-dg-cell>{{mentee.name}}</clr-dg-cell>
+      <clr-dg-cell>{{mentee.site}}</clr-dg-cell>
+      <clr-dg-cell>{{mentee.bu}}</clr-dg-cell>
+    </clr-dg-row>
+
+    <clr-dg-footer>{{mentees.length}} mentees</clr-dg-footer>
+  </clr-datagrid>
 
 </div>
 

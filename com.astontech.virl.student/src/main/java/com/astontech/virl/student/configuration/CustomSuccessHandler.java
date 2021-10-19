@@ -34,7 +34,7 @@ public class CustomSuccessHandler extends SimpleUrlAuthenticationSuccessHandler 
     private RedirectStrategy redirectStrategy = new DefaultRedirectStrategy();
 
     @Override
-    protected void handle(HttpServletRequest request, HttpServletResponse response, Authentication authentication) throws IOException{
+    protected void handle(HttpServletRequest request, HttpServletResponse response, Authentication authentication) throws IOException {
         String targetUrl = determineTargetUrl(authentication, request.getSession());
         redirectStrategy.sendRedirect(request, response, targetUrl);
     }
@@ -51,8 +51,7 @@ public class CustomSuccessHandler extends SimpleUrlAuthenticationSuccessHandler 
         };
         if (isMentor(roles)) {
             setProfileInfo.accept("MENTOR");
-        }
-        else if (isMentee(roles)) {
+        } else if (isMentee(roles)) {
             setProfileInfo.accept("MENTEE");
         }
         logger.info("User " + session.getAttribute("username") + " logged in");
@@ -72,7 +71,7 @@ public class CustomSuccessHandler extends SimpleUrlAuthenticationSuccessHandler 
 
         List<String> roles = new ArrayList<>();
 
-        for(GrantedAuthority grantedAuthority : authorities) {
+        for (GrantedAuthority grantedAuthority : authorities) {
             roles.add(grantedAuthority.getAuthority());
         }
         roles.forEach(r -> logger.info("Role Found: " + r));
@@ -84,13 +83,13 @@ public class CustomSuccessHandler extends SimpleUrlAuthenticationSuccessHandler 
 
         Optional<UserProfile> profile = userProfileService.findByUsername(name);
 
-        if(!profile.isPresent()) {
+        if (!profile.isPresent()) {
             logger.info("Creating new profile for: " + name);
             UserProfile newProfile = new UserProfile(name, session.getAttribute("userRole").toString());
             userProfileService.saveProfile(newProfile);
         } else {
             profile.ifPresent(userProfile -> {
-                if(Objects.isNull(userProfile.getRole())) {
+                if (Objects.isNull(userProfile.getRole())) {
                     logger.info("Updating role to " + session.getAttribute("userRole").toString() + " for user: " + name);
                     userProfile.setRole(session.getAttribute("userRole").toString());
                     userProfileService.saveProfile(userProfile);

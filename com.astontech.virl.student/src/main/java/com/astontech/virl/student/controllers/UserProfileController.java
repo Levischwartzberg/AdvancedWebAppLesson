@@ -33,17 +33,15 @@ public class UserProfileController {
 
     @GetMapping("/")
     public ResponseEntity<UserProfile> getSessionProfile(HttpSession session) {
-        if(session.getAttribute("username") != null) {
+        if (session.getAttribute("username") != null) {
             String username = removeEmailSignature(session.getAttribute("username").toString());
-            if(username == null) {
+            if (username == null) {
                 logger.error("Error getting username from Session!");
                 return ResponseEntity.status(403).body(null);
-            }
-            else {
+            } else {
                 return profileSearch(username);
             }
-        }
-        else {
+        } else {
             logger.error("No Session Error!");
             return ResponseEntity.status(420).body(null);
         }
@@ -52,7 +50,7 @@ public class UserProfileController {
     @PostMapping("/")
     public ResponseEntity<UserProfile> saveProfile(@RequestBody UserProfile userProfile) {
         UserProfile savedProfile = userProfileService.saveProfile(userProfile);
-        if(savedProfile.getId() == null) {
+        if (savedProfile.getId() == null) {
             ResponseEntity.status(HttpStatus.UNPROCESSABLE_ENTITY).body(userProfile);
         }
         return ResponseEntity.status(HttpStatus.CREATED).body(userProfile);

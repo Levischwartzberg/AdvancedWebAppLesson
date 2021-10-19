@@ -1,7 +1,7 @@
-import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
-import { MenteeService } from '../services/mentee.service';
-import { Mentee } from '../types/mentee';
+import {HttpClient} from '@angular/common/http';
+import {Component, OnInit} from '@angular/core';
+import {MenteeService} from '../services/mentee.service';
+import {Mentee} from '../types/mentee';
 
 @Component({
   selector: 'app-mentor',
@@ -20,7 +20,8 @@ export class MentorComponent implements OnInit {
 
   // constructor(private http: HttpClient) { }
 
-  constructor(private menteeService: MenteeService, private http: HttpClient) {} 
+  constructor(private menteeService: MenteeService, private http: HttpClient) {
+  }
 
   ngOnInit(): void {
     this.getMentees();
@@ -28,7 +29,7 @@ export class MentorComponent implements OnInit {
 
   getMentees() {
     this.menteeService.getMentees().subscribe(mentees => {
-        this.mentees = mentees;
+      this.mentees = mentees;
     })
   }
 

@@ -7,5 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class RoutingController {
 
     @GetMapping("/login")
-    public String giveLogin() {return "login";}
+    public String giveLogin() {
+        return "login";
+    }
 }

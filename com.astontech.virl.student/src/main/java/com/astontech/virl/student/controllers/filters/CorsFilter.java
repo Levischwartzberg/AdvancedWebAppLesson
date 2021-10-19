@@ -21,6 +21,6 @@ public class CorsFilter extends OncePerRequestFilter {
             response.addHeader("Access-Control-Allow-Methods", "X-Requested-With,Origin,Content-Type,Accept");
         }
 
-        filterChain.doFilter(request,response);
+        filterChain.doFilter(request, response);
     }
 }

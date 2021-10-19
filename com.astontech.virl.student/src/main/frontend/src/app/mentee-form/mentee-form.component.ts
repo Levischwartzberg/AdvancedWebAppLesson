@@ -1,5 +1,5 @@
-import { Component, OnInit, Output, EventEmitter, Input, OnChanges } from '@angular/core';
-import { Mentee } from '../types/mentee';
+import {Component, OnInit, Output, EventEmitter, Input, OnChanges} from '@angular/core';
+import {Mentee} from '../types/mentee';
 
 @Component({
   selector: 'app-mentee-form',
@@ -13,7 +13,9 @@ export class MenteeFormComponent implements OnChanges {
 
   submitted = false;
 
-  onSubmit() { this.submitted = true; }
+  onSubmit() {
+    this.submitted = true;
+  }
 
   @Output() notify: EventEmitter<Mentee> = new EventEmitter<Mentee>();
 
@@ -28,6 +30,8 @@ export class MenteeFormComponent implements OnChanges {
     this.notify.emit(this.mentee);
   }
 
-  get diagnostic() { return JSON.stringify(this.mentee); }
+  get diagnostic() {
+    return JSON.stringify(this.mentee);
+  }
 
 }
